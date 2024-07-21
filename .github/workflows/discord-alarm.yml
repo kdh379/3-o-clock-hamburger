@@ -1,0 +1,15 @@
+name: 누가 새벽3시에
+
+on:
+    schedule:
+        - cron: "0 18 * * *"
+
+jobs:
+    message:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Discord Alarm
+              uses: tsickert/discord-webhook@v6.0.0
+              with:
+                  webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+                  content: https://www.youtube.com/watch?v=8sRbHt_ugt4
